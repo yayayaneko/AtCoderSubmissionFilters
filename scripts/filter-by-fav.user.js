@@ -2,7 +2,7 @@
 // @name         AtcoderSubmissionFilterbyFav
 // @namespace    http://tampermonkey.net/
 // @version      2025-05-20
-// @description  AtCoderの提出一覧をお気に入りユーザーで絞り込む
+// @description  AtCoderの提出一覧の現在のページをお気に入りユーザーでフィルタをかける
 // @author       yayayaneko
 // @license      MIT
 // @match        https://atcoder.jp/contests/*/submissions*
@@ -25,7 +25,9 @@
         checkbox.type = "checkbox";
         checkbox.id = "checkbox-fav-sub-only";
 
+        checkbox.checked = localStorage.getItem("fav-sub-only")==="true";
         checkbox.addEventListener("change", () => {
+            localStorage.setItem("fav-sub-only", checkbox.checked);
             applyFilterCallback(checkbox.checked);
         });
 
@@ -38,7 +40,7 @@
     function applyFilter(filterflg) {
         const rows = document.querySelectorAll("table tbody tr");
         rows.forEach(row => {
-            const username = row.querySelector(`td:nth-child(3)`).innerText.trim();
+            const username = row.querySelector("td:nth-child(3)").innerText.trim();
             row.style.display = (filterflg && !fav.has(username)) ? "none" : "";
         });
     }
@@ -48,7 +50,8 @@
         if (row){
             observer.disconnect();
             addCheckbox(applyFilter);
-            applyFilter(false);
+            const lastState = localStorage.getItem("fav-sub-only")==="true";
+            applyFilter(lastState);
         }
     });
 
