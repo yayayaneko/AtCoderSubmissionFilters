@@ -12,7 +12,7 @@
 
 (function() {
     "use strict";
-    const fav = new Set(localStorage.getItem("fav") ?? []);
+    const fav = new Set(JSON.parse(localStorage.getItem("fav")) ?? []);
 
     function addCheckbox(applyFilterCallback) {
         const target = document.querySelector(".panel-submission .panel-heading form > div:last-child");
