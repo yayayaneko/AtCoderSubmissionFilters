@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         AtcoderSubmissionFilterbyFav
+// @name         AtCoderFavSubmissionFilter
 // @namespace    http://tampermonkey.net/
-// @version      2025-05-20
-// @description  AtCoderの提出一覧の現在のページをお気に入りユーザーでフィルタをかける
+// @version      0.1.0
+// @description  AtCoderの「すべての提出」の現在のページでお気に入りユーザー以外を非表示にする
 // @author       yayayaneko
 // @license      MIT
 // @match        https://atcoder.jp/contests/*/submissions*
