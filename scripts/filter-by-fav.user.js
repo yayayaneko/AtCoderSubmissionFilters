@@ -18,8 +18,9 @@
         const target = document.querySelector(".panel-submission .panel-heading form > div:last-child");
         if (!target) return;
 
-        const div = document.createElement("div");
-        div.className = "checkbox";
+        const containerDiv = document.createElement('div');
+        const contentDiv = document.createElement("div");
+        contentDiv.className = "checkbox";
         const label = document.createElement("label");
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
@@ -33,8 +34,9 @@
 
         label.appendChild(checkbox);
         label.appendChild(document.createTextNode(" お気に入りのみ表示"));
-        div.appendChild(label);
-        target.parentNode.insertBefore(div, target);
+        contentDiv.appendChild(label);
+        containerDiv.appendChild(contentDiv)
+        target.after(containerDiv);
     }
 
     function applyFilter(filterflg) {
