@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         AtCoderFavSubmissionFilter
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/yayayaneko/AtCoderSubmissionFilters
 // @version      0.1.0
 // @description  AtCoderの「すべての提出」の現在のページでお気に入りユーザー以外を非表示にする
 // @author       yayayaneko
